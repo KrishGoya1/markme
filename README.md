@@ -48,10 +48,14 @@ Contributions, issues, and feature requests are welcome! See [CONTRIBUTING.md](C
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 👨‍💻 Author
+## 👨‍💻 Authors
 
-Krish Pankaj Goyal - [github.com/KrishGoya1](https://github.com/KrishGoya1)
-Aditya Pandey - [github.com/ADP-1](https://github.com/ADP-1)
+MarkMe was created and is maintained by:
+
+- **Krish Pankaj Goyal** - [github.com/KrishGoya1](https://github.com/KrishGoya1)
+- **Aditya Pandey** - [github.com/ADP-1](https://github.com/ADP-1)
+
+We are passionate developers committed to making attendance tracking easier and more efficient. Feel free to reach out to us with any questions or feedback!
 
 ## 🙏 Acknowledgements
 
