@@ -18,7 +18,10 @@ MarkMe is a modern, intuitive Flutter application designed to simplify attendanc
 ## 📱 Screenshots
 
 <p float="left">
-  <!-- Empty for now -->
+  <img src="screenshots/home_screen.png" width="200" />
+  <img src="screenshots/attendance_marking.png" width="200" /> 
+  <img src="screenshots/class_overview.png" width="200" />
+  <img src="screenshots/reports_screen.png" width="200" />
 </p>
 
 ## 🛠️ Installation
