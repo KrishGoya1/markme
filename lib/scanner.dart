@@ -11,11 +11,75 @@ class _NFCScannerState extends State<NFCScanner> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('NFC Scanner')),
-      body: Center(
-        child: ElevatedButton(
-          child: Text('Scan NFC'),
-          onPressed: _scanNFC,
+      appBar: AppBar(
+        title: Row(
+          children: [
+            Image.asset('assets/logo.png', height: 30),
+            const SizedBox(width: 10),
+            const Text('MARKME', style: TextStyle(fontWeight: FontWeight.bold)),
+          ],
+        ),
+        backgroundColor: Colors.black,
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Text(
+              'Recent Records',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+          ),
+          Expanded(
+            child: ListView(
+              children: [
+                _buildRecordCard('CSP', 'COA', '12:55 PM', 36),
+                _buildRecordCard('CSE', 'CN', '1:45 PM', 40),
+              ],
+            ),
+          ),
+        ],
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            IconButton(
+              icon: const Icon(Icons.home),
+              onPressed: () {},
+            ),
+            const SizedBox(width: 32), // Space for FAB
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _scanNFC,
+        child: const Icon(Icons.add),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+    );
+  }
+
+  Widget _buildRecordCard(String className, String subject, String time, int count) {
+    return Card(
+      margin: const EdgeInsets.all(8),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Class: $className', style: const TextStyle(fontSize: 18)),
+                Text('Subject: $subject', style: const TextStyle(fontSize: 18)),
+                Text('Time: $time', style: const TextStyle(fontSize: 18)),
+                Text('Count: $count', style: const TextStyle(fontSize: 18)),
+              ],
+            ),
+            const Icon(Icons.bookmark, size: 40),
+          ],
         ),
       ),
     );
@@ -24,7 +88,7 @@ class _NFCScannerState extends State<NFCScanner> {
   void _scanNFC() async {
     bool isAvailable = await NfcManager.instance.isAvailable();
     if (!isAvailable) {
-      print('NFC is not available on this device');
+      debugPrint('NFC is not available on this device');
       return;
     }
 
